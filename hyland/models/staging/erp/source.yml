@@ -1,0 +1,74 @@
+
+version: 2
+
+sources:
+  - name: erp
+    description: This model represents the source of AdventureWorks sales..
+    schema: dev_italo
+    tables: 
+
+      - name: follower_by_country
+        description: The "followers_by_country" table contains data related to followers or subscribers, categorized by country. 
+          This data is typically sourced from external systems or data pipelines.
+        columns:
+          - name: _organization_entity_urn
+            description: An identifier associated with the organization or entity for which follower data is being collected. 
+              It allows for attribution to specific entities.
+            tests:
+              - not_null
+              
+      - name: organization
+        description: The "organization" table contains records of organizations, companies, or entities with which the company interacts.
+        columns:
+          - name: id
+            description: A unique identifier for each organization registered in the system, allowing for unique identification and tracking of each organization.
+            tests:
+              - unique
+              - not_null
+
+          - name: localized_name
+            description: The name of the organization, providing information about the identity or denomination of the business entity. 
+              This field is useful for reference and identification purposes.
+            tests:
+              - unique
+              - not_null
+              
+      - name: share_statistic
+        description: The "share_statistic" table contains statistics and metrics related to the sharing of information or resources within a business context.
+        columns:
+          - name: _share_entity_urn
+            description: A unique identifier for the shared entity or resource, 
+              allowing for the tracking and identification of what was shared.
+            tests:
+              - unique
+              - not_null
+
+          - name: _organization_entity_urn
+            description: An identifier associated with the organization or entity involved in the sharing activity, 
+              enabling attribution to specific entities.
+            tests:
+              - not_null
+
+      - name: ugc_post_history
+        description: The "ugc_post_history" table contains records of the history of user-generated posts (UGC - User Generated Content). This table maintains a detailed record of all posts made by users on a specific platform or system.
+        columns:
+          - name: id
+            description: A unique identifier for each user-generated post, allowing for the identification and individual tracking of each post.
+            tests:
+            - unique
+            - not_null
+
+          - name: author
+            description: The identifier associated with the author or creator of the user-generated post, enabling attribution to specific users.
+            tests:
+            - not_null
+
+      - name: ugc_post_share_statistic
+        description: The "ugc_post_share_statistic" table is a used for the sole purpose of recording the unique identifier of user-generated posts (UGC - User Generated Content). 
+         This table provides a centralized record of posts shared by users.
+        columns:
+          - name: ugc_post_id
+            description: A unique identifier for each user-generated post registered in the system.
+            tests:
+              - unique
+              - not_null

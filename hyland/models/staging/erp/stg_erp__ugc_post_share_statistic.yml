@@ -1,0 +1,10 @@
+
+version: 2
+
+models:
+  - name: stg_erp__ugc_post_share_statistic
+    description: The "ugc_post_share_statistic" staging table serves the sole purpose of recording the unique identifier of 
+      user-generated posts (UGC - User Generated Content). This table provides a centralized record of post shared by users..
+    columns:
+      - name: post_id
+        description: A unique identifier for each user-generated post registered in the system.

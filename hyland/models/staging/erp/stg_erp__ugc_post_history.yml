@@ -1,0 +1,25 @@
+
+version: 2
+
+models:
+  - name: stg_erp__ugc_post_history
+    description: The "ugc_post_history" staging table is used to record the history of user-generated posts (UGC - User Generated Content). 
+      This table maintains a detailed record of all posts made by users on a specific platform or system.
+    columns:
+      - name: post_id
+        description: A unique identifier for each user-generated post, allowing for the identification and individual tracking of each post.
+
+      - name: author_id
+        description: The identifier associated with the author or creator of the user-generated post, enabling attribution to specific users.
+
+      - name: post_date
+        description: The date and time when the user-generated post was created or posted, allowing tracking of when the post occurred.
+
+      - name: post_text
+        description: The textual content of the user-generated post, including the actual message or content shared by the author.
+
+      - name: post_type
+        description: A category that classifies the type of post, such as text, image, video, or another format, helping to identify the content format.
+        
+      - name: post_commentary
+        description: Space for additional comments or notes related to the user-generated post, which can provide context or relevant additional information.
