@@ -6,12 +6,14 @@ models:
       This data is typically sourced from external systems or data pipelines.
     columns:
       - name: organization_entity_id
-        description: An identifier associated with the organization or entity for which follower data is being collected. 
-          It allows for attribution to specific entities.
+        description: An identifier associated with the organization or entity for which follower data is being collected. It allows for attribution to specific entities.
+
       - name: fivetran_synced
         description: A flag indicating whether the data in this record has been synchronized or ingested using the Fivetran data integration platform.
+
       - name: followers_organic
         description: The count of organic followers or subscribers associated with the organization or entity. Organic followers are typically acquired without paid advertising or promotion.
+        
       - name: followers_paid
         description: The count of paid followers or subscribers associated with the organization or entity. Paid followers are typically acquired through paid advertising or promotional campaigns.
 

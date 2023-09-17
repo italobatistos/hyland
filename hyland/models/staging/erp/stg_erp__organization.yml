@@ -7,6 +7,6 @@ models:
     columns:
       - name: organization_id
         description: A unique identifier for each organization registered in the system, allowing for unique identification and tracking of each organization.
+        
       - name: organization_name
-        description: The name of the organization, providing information about the identity or denomination of the business entity. 
-          This field is useful for reference and identification purposes.
+        description: The name of the organization, providing information about the identity or denomination of the business entity. This field is useful for reference and identification purposes.
