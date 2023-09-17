@@ -6,10 +6,10 @@ with
         from{{ ref('dim_organization')}}
     )
 
-    /*, followers as (
+    , followers as (
         select *
         from{{ ref('dim_followers')}}
-    )*/
+    )
 
     , post_metrics as (
         select *
@@ -26,19 +26,20 @@ with
             , post_metrics.post_text
             , post_metrics.post_type
             , post_metrics.post_commentary
+            , post_metrics.engagement
             , post_metrics.engagement_rate
             , post_metrics.share
             , post_metrics.clicks
             , post_metrics.likes
             , post_metrics.impressions
             , post_metrics.comments
-            --, followers.followers_organic
-            --, followers.followers_paid
+            , followers.followers_organic
+            , followers.followers_paid
         from post_metrics
         left join organization on
            post_metrics.author_id = organization.organization_id
-        /*inner join followers on
-            post_metrics.author_id = followers.organization_entity_id*/
+        left join followers on
+            post_metrics.author_id = followers.organization_entity_id
     )
 
     , transformations as (

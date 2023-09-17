@@ -1,11 +1,6 @@
 
 with
-    post_statistic as (
-        select *
-        from{{ ref('stg_erp__ugc_post_share_statistic')}}
-    )
-
-    , post_history as (
+    post_history as (
         select *
         from{{ ref('stg_erp__ugc_post_history')}}
     )
@@ -17,8 +12,8 @@ with
 
     , join_post_metrics as (
         select 
-            post_statistic.post_id
-            , post_history.author_id
+            post_history.author_id
+            , post_history.post_id
             , post_history.post_date
             , post_history.post_text
             , post_history.post_type
@@ -29,17 +24,16 @@ with
             , share_statistic.likes
             , share_statistic.impressions
             , share_statistic.comments
-        from post_statistic
-        left join post_history on
-                  post_statistic.post_id = post_history.post_id
-        left join share_statistic on
-                  post_statistic.post_id = share_statistic.share_entity_id
+        from share_statistic
+        inner join post_history on
+                  share_statistic.share_entity_id = post_history.post_id
     )
 
     , transformations as (
         select
             row_number() over (order by post_id) as sk_post
             , *
+            , (clicks + likes + share + comments) as engagement
             , count(post_id) over (partition by author_id) as author_qty_post
         from join_post_metrics
     )
