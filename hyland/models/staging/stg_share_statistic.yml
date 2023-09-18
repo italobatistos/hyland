@@ -2,9 +2,8 @@
 version: 2
 
 models:
-  - name: stg_erp__share_statistic
-    description: The "stg_erp__share_statistic" table is used as a staging table to collect statistics and metrics related 
-      to the sharing of information or resources within a business context.
+  - name: stg_share_statistic
+    description: The "stg_share_statistic" table is used as a staging table to collect statistics and metrics related to sharing information or resources on LinkedIn.
     columns:
       - name: share_entity_id
         description: A unique identifier for the shared entity or resource, allowing for the tracking and identification of what was shared.

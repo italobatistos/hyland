@@ -11,7 +11,7 @@ with
             , cast(like_count as int) as likes 
             , cast(impression_count as int) as impressions
             , cast(comment_count as int) as comments
-        from {{ source('erp','share_statistic') }}
+        from {{ source('linkedin','share_statistic') }}
     )
     
 select *

@@ -8,7 +8,7 @@ with
             , cast(specific_content_share_commentary_text as string) as post_text 
             , cast(specific_content_share_media_category as string) as post_type
             , cast(commentary as string) as post_commentary
-        from {{ source('erp','ugc_post_history') }}
+        from {{ source('linkedin','ugc_post_history') }}
     )
     
 select *

@@ -2,7 +2,7 @@
 with
     followers as (
         select *
-        from{{ ref('stg_erp__followers_by_country')}}
+        from{{ ref('stg_followers_by_country')}}
     )
 
     , followers_metric as (

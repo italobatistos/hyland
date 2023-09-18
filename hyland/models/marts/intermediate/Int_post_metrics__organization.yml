@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: int_post_metrics__organization
+    description: This is a intermediate data model designed to record metrics related to LinkedIn posts. It includes information about the performance of posts, 
+      such as engagement, clicks, and impressions.
+    columns:
+      - name: post_id
+        description: This column stores a unique identifier for each LinkedIn post.
+        tests:
+          - not_null
+      
+      - name: author_id
+        description: This column contains a unique identifier for the author of the LinkedIn post.
+        tests:
+          - not_null
+      
+      - name: organization_id
+        description: This column holds a unique identifier for the organization associated with the post.
+        tests:
+          - not_null
+      
+      - name: organization_name
+        description: This column stores the name of the organization related to the post.
+        tests:
+          - not_null
+      
+      - name: post_date
+        description: This column records the date when the LinkedIn post was published.
+        tests:
+          - not_null
+      
+      - name: post_text
+        description: This column contains the text content of the LinkedIn post.
+        tests:
+
+      
+      - name: post_type
+        description: This column categorizes the type of LinkedIn post (e.g., text, image, video).
+        tests:
+
+      
+      - name: post_commentary
+        description: This column stores any additional commentary or description for the post.
+        tests:
+
+
+      - name: engagement
+        description: This column records the level of engagement (e.g., likes, comments, shares) for the post.
+        tests:
+          - not_null
+
+      - name: engagement_rate
+        description: This column calculates the engagement rate for the post, typically as a percentage.
+        tests:
+          - not_null
+
+      - name: share
+        description: This column stores the number of times the post was shared by users.
+        tests:
+          - not_null
+
+      - name: clicks
+        description: This column tracks the number of clicks on the post, including links and media.
+        tests:
+          - not_null
+
+      - name: likes
+        description: This column records the number of likes received on the post.
+        tests:
+          - not_null
+
+      - name: impressions
+        description: This column measures the total impressions (views) of the post.
+        tests:
+          - not_null
+
+      - name: comments
+        description: This column captures the number of comments made on the post.
+        tests:
+          - not_null
+
+

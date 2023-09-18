@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_linkedin_followers
+    description: This is a data model designed to record information related to the number of followers on an organization's page on LinkedIn. 
+      It includes metrics about organic and paid followers, as well as an entity key to identify the organization associated with this data.
+    columns:
+      - name: organization_entity_id
+        description: This column contains a key that uniquely identifies the entity (organization) to which the follower data is associated.
+        tests:
+          - unique
+          - not_null
+      
+      - name: followers_organic
+        description: This column stores the number of organic followers, i.e., those who followed the organization's page on LinkedIn without paid engagement.
+        tests:
+          - not_null
+      
+      - name: followers_paid
+        description: This column stores the number of paid followers, which were acquired through marketing strategies or paid advertising on LinkedIn.
+        tests:
+          - not_null
+
+      
+      
