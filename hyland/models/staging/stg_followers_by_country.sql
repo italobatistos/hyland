@@ -6,7 +6,7 @@ with
             , cast(_fivetran_synced as date) as fivetran_synced
             , cast(follower_counts_organic_follower_count as int) as followers_organic
             , cast(follower_counts_paid_follower_count as int) as followers_paid
-        from {{ source('erp','follower_by_country') }}
+        from {{ source('linkedin','follower_by_country') }}
         where _organization_entity_urn not like '%Brand%'
     )
     

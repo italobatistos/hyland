@@ -36,7 +36,7 @@ models:
     # Config indicated by + and applies to all files under models/example/
     marts:
       +materialized: table
-      +schema: marts
+      +schema: marts_social_media_linkedin
 
       intermediate:
         +materialized: view
@@ -47,5 +47,6 @@ models:
 
 seeds:
   hyland:
+    +schema: seeds_social_media_linkedin
     source:
-      +schema: seeds_hyland
+      +schema: seeds_social_media_linkedin

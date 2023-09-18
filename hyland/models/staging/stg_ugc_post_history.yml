@@ -2,8 +2,8 @@
 version: 2
 
 models:
-  - name: stg_erp__ugc_post_history
-    description: The "ugc_post_history" staging table is used to record the history of user-generated posts (UGC - User Generated Content). 
+  - name: stg_ugc_post_history
+    description: The "stg_ugc_post_history" staging table is used to record the history of user-generated posts (UGC - User Generated Content). 
       This table maintains a detailed record of all posts made by users on a specific platform or system.
     columns:
       - name: post_id

@@ -2,8 +2,8 @@
 version: 2
 
 sources:
-  - name: erp
-    description: This model represents the source of AdventureWorks sales..
+  - name: linkedin
+    description: This model acts as the primary data source for Hyland's LinkedIn information, providing essential details and insights.
     schema: dev_italo
     tables: 
 
@@ -40,7 +40,6 @@ sources:
             description: A unique identifier for the shared entity or resource, 
               allowing for the tracking and identification of what was shared.
             tests:
-              - unique
               - not_null
 
           - name: _organization_entity_urn
@@ -55,7 +54,6 @@ sources:
           - name: id
             description: A unique identifier for each user-generated post, allowing for the identification and individual tracking of each post.
             tests:
-            - unique
             - not_null
 
           - name: author
@@ -63,12 +61,3 @@ sources:
             tests:
             - not_null
 
-      - name: ugc_post_share_statistic
-        description: The "ugc_post_share_statistic" table is a used for the sole purpose of recording the unique identifier of user-generated posts (UGC - User Generated Content). 
-         This table provides a centralized record of posts shared by users.
-        columns:
-          - name: ugc_post_id
-            description: A unique identifier for each user-generated post registered in the system.
-            tests:
-              - unique
-              - not_null
