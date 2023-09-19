@@ -1,26 +1,22 @@
 
 with
-    followers as (
+    followers_organization as (
         select *
-        from{{ ref('stg_followers_by_country')}}
+        from{{ ref('int_followers__organization')}}
     )
 
     , followers_metric as (
-        select 
-            followers.organization_entity_id
-            , followers.followers_organic
-            , followers.followers_paid
-        from followers
+        select *
+        from followers_organization
+
     )
 
     , transformations as (
         select
-            row_number() over (order by organization_entity_id) as sk_organization_entity
-            , organization_entity_id
-            , sum(followers_organic) as followers_organic
-            , sum(followers_paid) as followers_paid
+            {{ dbt_utils.generate_surrogate_key(['organization_entity_id', 'fivetran_synced']) }} as sk_organization_followers
+            , *
         from followers_metric
-        group by organization_entity_id
+
         
     )
 

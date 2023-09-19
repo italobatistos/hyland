@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fct_linkedin_followers
+  - name: int_followers__organization
     description: This is a data model designed to record information related to the number of followers on an organization's page on LinkedIn. 
       It includes metrics about organic and paid followers, as well as an entity key to identify the organization associated with this data.
     columns:

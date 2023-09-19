@@ -7,8 +7,7 @@ with
     )
 
     , post_metrics__organization as (
-        select 
-           *
+        select  *
         from int_post_metrics__organization
     )
 
