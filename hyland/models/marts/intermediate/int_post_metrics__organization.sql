@@ -33,7 +33,7 @@ with
             , share_statistic.comments
             , share_statistic.engagement_rate
         from post_history
-        inner join share_statistic on
+        left join share_statistic on
                    post_history.post_id = share_statistic.share_entity_id
         left join organization on
            post_history.author_id = organization.organization_id

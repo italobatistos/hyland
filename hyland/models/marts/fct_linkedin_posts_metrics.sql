@@ -18,5 +18,17 @@ with
         from post_metrics__organization
     )
 
+    , latest_metric as (
+        select        
+            *
+            , row_number() over (
+                partition by post_id
+                order by post_date desc
+            ) as row_index
+        from transformations
+        qualify row_index <=1
+        order by post_date asc
+    )
+
 select *
-from transformations
+from latest_metric
